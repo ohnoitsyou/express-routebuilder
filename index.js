@@ -28,7 +28,9 @@ var express = require('express')
 var router = express.Router()
 
 function routebuilder (routes) {
-  var endpoints = Object.keys(routes.routes)
+  // pull out just the routes
+  routes = routes.routes
+  var endpoints = Object.keys(routes)
   for (var endpoint of endpoints) {
     var methods = Object.keys(routes[endpoint])
     for (var method of methods) {
