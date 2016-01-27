@@ -5,7 +5,13 @@
   "main": "index.js",
   "author": "David Young <ohnoitsyou7043@gmail.com>",
   "license": "ISC",
+  "repository": "https://github.com/ohnoitsyou/express-routebuilder",
   "dependencies": {
     "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.4.4",
+    "request": "^2.69.0"
   }
 }
