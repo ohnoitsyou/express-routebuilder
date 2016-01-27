@@ -1,16 +1,21 @@
 /* Take in an array of routes structured thusly:
  *   {
- *     '/': {
- *       'get': function (req, res) {
- *       },
- *       'post': function (req, res) {
+ *     'routes': {
+ *       '/': {
+ *         'get': function (req, res) {
+ *         },
+ *         'post': function (req, res) {
+ *         }
  *       }
- *     }
- *     '/users' : {
- *       'get': function (req, res) {
- *       },
- *       'delete': function (req, res) {
+ *       '/users' : {
+ *         'get': function (req, res) {
+ *         },
+ *         'delete': function (req, res) {
+ *         }
  *       }
+ *     },
+ *     'helpers': {
+ *       // not needed for building routes, useful for unit-testing
  *     }
  *   }
  *
@@ -23,7 +28,7 @@ var express = require('express')
 var router = express.Router()
 
 function routebuilder (routes) {
-  var endpoints = Object.keys(routes)
+  var endpoints = Object.keys(routes.routes)
   for (var endpoint of endpoints) {
     var methods = Object.keys(routes[endpoint])
     for (var method of methods) {
