@@ -1,6 +1,6 @@
 {
   "name": "express-routebuilder",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Takes a structured object of express routes and builds an express router",
   "main": "index.js",
   "author": "David Young <ohnoitsyou7043@gmail.com>",
