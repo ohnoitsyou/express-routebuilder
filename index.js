@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-call */
 /* Take in an array of routes structured thusly:
  *   {
  *     'routes': {
@@ -35,25 +36,7 @@ function routebuilder (routes) {
     var methods = Object.keys(routes[endpoint])
     for (var method of methods) {
       var cb = routes[endpoint][method]
-      switch (method) {
-        case 'all':
-          router.all(endpoint, cb)
-          break
-        case 'get':
-          router.get(endpoint, cb)
-          break
-        case 'post':
-          router.post(endpoint, cb)
-          break
-        case 'put':
-          router.put(endpoint, cb)
-          break
-        case 'delete':
-          router.delete(endpoint, cb)
-          break
-        default:
-          break
-      }
+      router[method].call(router, endpoint, cb)
     }
   }
   return router
